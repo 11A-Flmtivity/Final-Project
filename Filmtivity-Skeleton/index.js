@@ -1,10 +1,10 @@
 import express from 'express';
-import mongoose from 'mongoose';
 import cookieParser from 'cookie-parser';
 import dotenv from 'dotenv';
 import {fileURLToPath} from 'url';
 import {dirname, join} from 'path';
 import {engine} from 'express-handlebars';
+import connectDB from './config/db.js';
 
 dotenv.config();
 
@@ -14,9 +14,7 @@ const __dirname = dirname(__filename);
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect(process.env.MONGODB_URI)
-.then(() => console.log('MongoDB connected'))
-.catch((err) => console.log(err));
+connectDB();
 
 app.engine(".hbs", engine({
     extname: ".hbs",
