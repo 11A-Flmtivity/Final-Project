@@ -1,2 +1,1 @@
-# Final-Project
-Softuni final JS project
+Website for movies
