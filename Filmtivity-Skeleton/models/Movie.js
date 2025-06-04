@@ -20,3 +20,7 @@ const movieSchema = new mongoose.Schema({
         ref: 'User'
     }]
 }, { timestamps: true });
+
+const Movie = mongoose.model('Movie', movieSchema);
+
+export default Movie;
