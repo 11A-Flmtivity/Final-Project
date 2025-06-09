@@ -1,2 +1,3 @@
 # Final-Project
-Softuni final JS project
+Softuni final
+
