@@ -1,0 +1,15 @@
+<nav>
+    <h1><a href="/">Filmtivity</a></h1>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/movies">All Movies</a></li>
+        {{#if isAuth}}
+            <li><a href="/movies/create">Add Movie</a></li>
+            <li><a href="/profile">Profile</a></li>
+            <li><a href="/auth/logout">Logout</a></li>
+        {{else}}
+            <li><a href="/auth/login">Login</a></li>
+            <li><a href="/auth/register">Register</a></li>
+        {{/if}}
+    </ul>
+</nav>
