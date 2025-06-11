@@ -63,7 +63,7 @@ app.use('/movies', movieRoutes);
 app.use('/auth', authRoutes);
 
 
-// 404 Handler - This should be last
+// 404 Handler, this should be last
 app.use((req, res) => {
     res.status(404).render('pages/404', { title: 'Page Not Found' });
 });
