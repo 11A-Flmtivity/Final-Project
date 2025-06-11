@@ -1,0 +1,45 @@
+<section id="details-page">
+    <div class="main_card">
+        <div class="card_left">
+            <div class="card_datails">
+                <h1>{{movie.title}}</h1>
+                <p class="disc">{{movie.overview}}</p>
+            </div>
+        </div>
+        <div class="card_right">
+            <img src="https://image.tmdb.org/t/p/w500{{movie.poster_path}}" alt="{{movie.title}}">
+        </div>
+    </div>
+</section>
+
+<section class="comments-section">
+    <h2>Comments</h2>
+
+    {{#if isAuth}}
+    <div class="add-comment-form">
+        <h3>Leave a Comment</h3>
+        <form action="/movies/{{movie._id}}/comment" method="POST">
+            <textarea name="text" placeholder="Share your thoughts..." required minlength="10"></textarea>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+    {{else}}
+        <p>Please <a href="/login">log in</a> to post a comment.</p>
+    {{/if}}
+
+    <div class="comments-list">
+        <hr>
+        {{#if movie.comments.length}}
+            {{#each movie.comments}}
+            <div class="comment-card">
+                <p><strong>{{this.author.username}}</strong> wrote:</p>
+                <p class="comment-text">"{{this.text}}"</p>
+                <small>Posted on: {{formatDate this.createdAt}}</small>
+            </div>
+            <hr>
+            {{/each}}
+        {{else}}
+            <p>There are no comments for this movie yet.</p>
+        {{/if}}
+    </div>
+</section>
