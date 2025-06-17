@@ -10,6 +10,11 @@ const movieSchema = new mongoose.Schema({
         required: true,
         unique: true
     },
+    ratings: {
+        type: [Number],
+        default: []
+    },
+
     poster_path: String,
     overview: String,
     release_date: String,
